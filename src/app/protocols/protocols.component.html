@@ -1,16 +1,11 @@
 <h2>My Protocols</h2>
+
 <ul class="protocols">
-  <li *ngFor="let protocol of protocols" (click)="onSelect(protocol)" [class.selected]="protocol === selectedProtocol">
+  <li *ngFor="let protocol of protocols"
+      (click)="onSelect(protocol)"
+      [class.selected]="protocol === selectedProtocol">
     <span class="badge {{protocol.osi}}">{{protocol.id}}</span> {{protocol.name}}
   </li>
 </ul>
-<div *ngIf="selectedProtocol">
-<h2>{{selectedProtocol.name | uppercase}} Details</h2>
-<div><span>id: </span>{{selectedProtocol.id}}</div>
-<div><span>osi level: </span>{{selectedProtocol.osi}}</div>
-<div>
-  <label>name:
-    <input [(ngModel)]="selectedProtocol.name" placeholder="name"/>
-  </label>
-</div>
-</div>
+
+<app-protocol-detail [protocol]="selectedProtocol"></app-protocol-detail>

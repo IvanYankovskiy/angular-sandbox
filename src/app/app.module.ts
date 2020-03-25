@@ -4,11 +4,13 @@ import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
 import { ProtocolsComponent } from './protocols/protocols.component';
 import {FormsModule} from '@angular/forms';
+import { ProtocolDetailComponent } from './protocol-detail/protocol-detail.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    ProtocolsComponent
+    ProtocolsComponent,
+    ProtocolDetailComponent
   ],
   imports: [
     BrowserModule,

@@ -1,0 +1,10 @@
+<div *ngIf="protocol">
+  <h2>{{protocol.name | uppercase}} Details</h2>
+  <div><span>id: </span>{{protocol.id}}</div>
+  <div><span>osi level: </span>{{protocol.osi}}</div>
+  <div>
+    <label>name:
+      <input [(ngModel)]="protocol.name" placeholder="name"/>
+    </label>
+  </div>
+</div>
