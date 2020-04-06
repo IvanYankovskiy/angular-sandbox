@@ -13,5 +13,10 @@ export class ProtocolService {
     return of(PROTOCOLS);
   }
 
+  getProtocol(id: number): Observable<Protocol> {
+    this.messageService.add(`ProtocolService: fetched protocol id=${id}`);
+    return of(PROTOCOLS.find(protocol => protocol.id === id));
+  }
+
   constructor(private messageService: MessageService) { }
 }

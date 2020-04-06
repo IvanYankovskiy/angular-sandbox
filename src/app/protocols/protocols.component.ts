@@ -10,18 +10,11 @@ import {MessageService} from '../message.service';
 })
 export class ProtocolsComponent implements OnInit {
   protocols: Protocol[];
-  selectedProtocol: Protocol;
 
-  constructor(private protocolService: ProtocolService,
-              private messageService: MessageService) { }
+  constructor(private protocolService: ProtocolService) { }
 
   ngOnInit() {
     this.getProtocols();
-  }
-
-  onSelect(protocol: Protocol): void {
-    this.selectedProtocol = protocol;
-    this.messageService.add(`ProtocolService: Selected protocol id=${protocol.id}`);
   }
 
   getProtocols(): void {

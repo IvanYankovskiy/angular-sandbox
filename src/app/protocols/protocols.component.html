@@ -1,11 +1,10 @@
 <h2>My Protocols</h2>
 
 <ul class="protocols">
-  <li *ngFor="let protocol of protocols"
-      (click)="onSelect(protocol)"
-      [class.selected]="protocol === selectedProtocol">
-    <span class="badge {{protocol.osi}}">{{protocol.id}}</span> {{protocol.name}}
+  <li *ngFor="let protocol of protocols">
+    <a routerLink="/detail/{{protocol.id}}">
+      <span class="badge {{protocol.osi}}">{{protocol.id}}</span> {{protocol.name}}
+    </a>
   </li>
 </ul>
 
-<app-protocol-detail [protocol]="selectedProtocol"></app-protocol-detail>
