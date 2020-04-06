@@ -1,0 +1,7 @@
+<h1>OSI model</h1>
+<ul class="osi">
+  <li *ngFor="let osiLevel of osiLevels" (click)="goToDetails(osiLevel)">
+    <a [routerLink]="['detail', osiLevel.id]"><span class="badge {{osiLevel.name}}">{{osiLevel.id}}</span>{{osiLevel.name}}</a>
+  </li>
+</ul>
+

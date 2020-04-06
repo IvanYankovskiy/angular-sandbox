@@ -12,6 +12,9 @@ import {HttpClientModule} from '@angular/common/http';
 import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
 import {InMemoryDataService} from './in-memory-data.service';
 import { ProtocolSearchComponent } from './protocol-search/protocol-search.component';
+import { OsiComponent } from './osi/osi.component';
+import {OsiService} from './osi.service';
+import { OsiDetailsComponent } from './osi-details/osi-details.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +23,9 @@ import { ProtocolSearchComponent } from './protocol-search/protocol-search.compo
     ProtocolDetailComponent,
     MessagesComponent,
     DashboardComponent,
-    ProtocolSearchComponent
+    ProtocolSearchComponent,
+    OsiComponent,
+    OsiDetailsComponent
   ],
   imports: [
     BrowserModule,
@@ -31,7 +36,7 @@ import { ProtocolSearchComponent } from './protocol-search/protocol-search.compo
       InMemoryDataService, { dataEncapsulation: false }
     )
   ],
-  providers: [],
+  providers: [OsiService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

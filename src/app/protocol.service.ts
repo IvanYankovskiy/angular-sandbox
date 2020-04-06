@@ -24,6 +24,19 @@ export class ProtocolService {
       );
   }
 
+  getProtocolsByOsiLevel(term: string) {
+    if (!term.trim()) {
+      // if not search term, return empty protocol array.
+      return of([]);
+    }
+    return this.http.get<Protocol[]>(`${this.protocolsUrl}/?osi=${term}`).pipe(
+      tap(x => x.length ?
+        this.log(`found protocols matching "${term}"`) :
+        this.log(`no protocols matching "${term}"`)),
+      catchError(this.handleError<Protocol[]>('searchProtocols', []))
+    );
+  }
+
   getProtocol(id: number): Observable<Protocol> {
     const url = `${this.protocolsUrl}/${id}`;
     return this.http.get<Protocol>(url).pipe(

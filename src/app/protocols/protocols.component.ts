@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {Protocol} from '../model/protocol';
 import { ProtocolService } from '../protocol.service';
-import {MessageService} from '../message.service';
 
 @Component({
   selector: 'app-protocols',

@@ -1,0 +1,21 @@
+<div *ngIf="osiLevel">
+  <h2>{{osiLevel.name | uppercase}} Details</h2>
+  <div><span>level: </span>{{osiLevel.id}}</div>
+  <div>
+    <label>name:
+      <input [(ngModel)]="osiLevel.name" placeholder="name"/>
+    </label>
+  </div>
+  <div>
+    <h4>description:</h4>
+    <p>{{osiLevel.description}}</p>
+  </div>
+  <div *ngIf="relatedProtocols; else elseBlock">
+    <h4>related protocols:</h4>
+    <a (click)="goToProtocolDetails(protocol.id)" *ngFor="let protocol of relatedProtocols">{{protocol.name}}; </a>
+  </div>
+  <ng-template #elseBlock><p>There is no protocols related to osi level</p></ng-template>
+  <br>
+  <button (click)="goBack()">go back</button>
+
+</div>
