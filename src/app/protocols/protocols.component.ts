@@ -22,4 +22,18 @@ export class ProtocolsComponent implements OnInit {
       .subscribe(protocols => this.protocols = protocols);
   }
 
+  add(name: string): void {
+    name = name.trim();
+    if (!name) { return; }
+    this.protocolService.addProtocol({ name } as Protocol)
+      .subscribe(protocol => {
+        this.protocols.push(protocol);
+      });
+  }
+
+  delete(protocol: Protocol): void {
+    this.protocols = this.protocols.filter(h => h !== protocol);
+    this.protocolService.deleteProtocol(protocol).subscribe();
+  }
+
 }

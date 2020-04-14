@@ -31,4 +31,9 @@ export class ProtocolDetailComponent implements OnInit {
     this.location.back();
   }
 
+  save(): void {
+    this.protocolService.updateProtocol(this.protocol)
+      .subscribe(() => this.goBack());
+  }
+
 }

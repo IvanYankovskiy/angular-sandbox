@@ -1,10 +1,20 @@
 <h2>My Protocols</h2>
-
+<div>
+  <label>Protocol name:
+    <input #protocolName />
+  </label>
+  <!-- (click) passes input value to add() and then clears the input -->
+  <button (click)="add(protocolName.value); protocolName.value=''">
+    add
+  </button>
+</div>
 <ul class="protocols">
   <li *ngFor="let protocol of protocols">
     <a routerLink="/detail/{{protocol.id}}">
       <span class="badge {{protocol.osi}}">{{protocol.id}}</span> {{protocol.name}}
     </a>
+    <button class="delete" title="delete protocol"
+            (click)="delete(protocol)">x</button>
   </li>
 </ul>
 
