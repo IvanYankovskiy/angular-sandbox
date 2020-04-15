@@ -11,6 +11,7 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import {HttpClientModule} from '@angular/common/http';
 import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
 import {InMemoryDataService} from './in-memory-data.service';
+import { ProtocolSearchComponent } from './protocol-search/protocol-search.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import {InMemoryDataService} from './in-memory-data.service';
     ProtocolsComponent,
     ProtocolDetailComponent,
     MessagesComponent,
-    DashboardComponent
+    DashboardComponent,
+    ProtocolSearchComponent
   ],
   imports: [
     BrowserModule,
