@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, EventEmitter, OnInit, Output} from '@angular/core';
 import {Protocol} from '../model/protocol';
 import {PROTOCOLS} from '../model/mock-protocols';
 
@@ -9,7 +9,8 @@ import {PROTOCOLS} from '../model/mock-protocols';
 })
 export class ProtocolsComponent implements OnInit {
   protocols = PROTOCOLS;
-  selectedProtocol: Protocol;
+  @Output()
+  selectedProtocol = new EventEmitter<Protocol>();
 
   constructor() { }
 
@@ -17,7 +18,7 @@ export class ProtocolsComponent implements OnInit {
   }
 
   onSelect(protocol: Protocol): void {
-    this.selectedProtocol = protocol;
+    this.selectedProtocol.emit(protocol);
   }
 
 }
